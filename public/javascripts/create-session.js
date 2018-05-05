@@ -1,5 +1,4 @@
-$("#create-session").on("click", e => {
+document.querySelector('a#create-session').addEventListener('click', e => {
   e.preventDefault()
-  console.log("create-session")
   document.querySelector(".create").style.display = "block"
 })
