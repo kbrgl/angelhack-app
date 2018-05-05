@@ -9,11 +9,14 @@ block content
     if user
       p You're logged in as #{user.email}. Hi #{user.profile.name ?   user.profile.name.split(/\s+/)[0] : 'there'}!
       p
-        form.join(action="/join", method="post")
+        form.form.join(action="/join", method="post")
           input(type="text" placeholder="Enter Code")
           button Join
       p or&nbsp;
         a(href="#" id="createSession") Create a session
+        form.form.create(action="" method="post")
+          input(type="text" placeholder="Enter Topic")
+          button Create
 
       p
         a(href="/auth/logout") Logout
