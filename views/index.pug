@@ -1,24 +1,13 @@
 extends layout
+block head
+  link(rel="stylesheets" href="/stylesheets/index.css")
 
 block content
   center
     h1 Studio
     p
-      input(type="text" placeholder="Enter Code" style="font-family: Inconsolata")
-      button Join
-    p or 
-      a Create a group
-  //- if user
-  //-   p You're logged in as #{user.email}. Hi #{user.profile.name ? user.profile.name.split(/\s+/)[0] : 'there'}!
-  //-   p
-  //-     a(href="/levels") Play
-  //-   p
-  //-     a(href="/leaderboard") Leaderboard
-  //-   if user.isAdmin
-  //-     p
-  //-       a(href="/admin") Admin Dashboard
-  //-   p
-  //-     a(href="/auth/logout") Logout
-  //- else
-  //-   p
-  //-     a(href="/auth/login") Login
+      form.join(action="/join", method="post")
+        input(type="text" placeholder="Enter Code")
+        button Join
+    p or&nbsp;
+      a(href="/create") Create a session
