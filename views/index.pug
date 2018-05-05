@@ -1,13 +1,22 @@
 extends layout
 block head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  script(src="/scripts/create-session.js")
 
 block content
   center
-    h1 Studio
-    p
-      form.join(action="/join", method="post")
-        input(type="text" placeholder="Enter Code")
-        button Join
-    p or&nbsp;
-      a(href="/create") Create a session
+    h1 Studio 
+    if user
+      p You're logged in as #{user.email}. Hi #{user.profile.name ?   user.profile.name.split(/\s+/)[0] : 'there'}!
+      p
+        form.join(action="/join", method="post")
+          input(type="text" placeholder="Enter Code")
+          button Join
+      p or&nbsp;
+        a(href="#" id="createSession") Create a session
+
+      p
+        a(href="/auth/logout") Logout
+    else
+      p
+        a(href="/auth/login") Login
