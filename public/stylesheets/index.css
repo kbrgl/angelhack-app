@@ -1,7 +1,11 @@
-.join input[type="text"] {
+.form input[type="text"] {
   font-family: "Inconsolata";
 }
 
-.join button {
+.form button {
   margin-left: 20px;
+}
+
+.create {
+  display: none;
 }
