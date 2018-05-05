@@ -17,20 +17,20 @@ passport.deserializeUser((id, done) => {
  */
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    User.findOne({ email: email.toLowerCase() }, (err, user) => {
+    Mate.findOne({ email: email.toLowerCase() }, (err, mate) => {
       if (err) {
         return done(err);
       }
 
-      if (!user) {
+      if (!mate) {
         return done(null, false, { message: `Email ${email} not found.` });
       }
 
-      return user
+      return mate
         .comparePassword(password)
         .then(isMatch => {
           if (isMatch) {
-            return done(null, user);
+            return done(null, mate);
           }
           return done(null, false, { message: "Invalid email or password." });
         })
@@ -47,14 +47,5 @@ function ensureAuthenticated(req, res, next) {
     res.redirect("/auth/login");
   }
 }
-function ensureAdmin(req, res, next) {
-  ensureAuthenticated(req, res, () => {
-    if (req.user.isAdmin) {
-      next();
-    } else {
-      res.sendStatus(403);
-    }
-  });
-}
 
-module.exports = { ensureAdmin, ensureAuthenticated };
+module.exports = { ensureAuthenticated };

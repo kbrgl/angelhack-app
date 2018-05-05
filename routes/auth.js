@@ -4,7 +4,7 @@ const { checkSchema, validationResult } = require("express-validator/check");
 const router = express.Router();
 const passport = require("passport");
 
-const User = require("../models/User");
+const Mate = require("../models/Mate");
 
 function doLoginRedirect(req, res) {
   if (req.session.loginRedirect) {
@@ -51,10 +51,10 @@ router
         normalizeEmail: true,
         custom: {
           options: async email => {
-            const user = await User.findOne({
+            const mate = await Mate.findOne({
               email
             });
-            if (user) {
+            if (mate) {
               throw new Error("Email already in use");
             }
           }
@@ -84,14 +84,14 @@ router
       }
 
       let user = new User({
-        profile: req.body.profile,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password
       });
 
       try {
-        user = await user.save();
-        req.login(user, () => {
+        mate = await mate.save();
+        req.login(mate, () => {
           next();
         });
       } catch (err) {

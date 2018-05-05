@@ -39,6 +39,6 @@ mateSchema.methods.comparePassword = async function comparePassword(
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-const mate = mongoose.model("Mate", mateSchema);
+const Mate = mongoose.model("Mate", mateSchema);
 
 module.exports = Mate;
