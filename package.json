@@ -1,0 +1,55 @@
+{
+  "name": "sudocrypt",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "./bin/test"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/utils.js"
+    ]
+  },
+  "engines": {
+    "node": "9.5.x"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "~1.18.2",
+    "compression": "^1.7.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "~1.4.3",
+    "country-data": "^0.0.31",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "express": "~4.16.2",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.0.3",
+    "lodash": "^4.17.5",
+    "mongodb-memory-server": "^1.7.0",
+    "mongomem": "^0.1.9",
+    "mongoose": "^4.13.11",
+    "morgan": "~1.9.0",
+    "ms": "^2.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "ava": "^1.0.0-beta.3",
+    "chance": "^1.0.13",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-ava": "^4.5.1",
+    "eslint-plugin-import": "^2.9.0",
+    "prettier": "^1.11.1",
+    "supertest": "^3.0.0",
+    "tap-diff": "^0.1.1"
+  }
+}

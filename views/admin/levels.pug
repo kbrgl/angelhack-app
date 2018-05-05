@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1 Levels
+  h2 Add Level
+  form(action="/levels", method="POST")
+    input(type="number", value="0", name="number")
+    input(type="text", name="text", placeholder="Text")
+    input(type="text", name="answer", placeholder="Answer")
+    button Create

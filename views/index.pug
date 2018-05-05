@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Studio
+  a Create a group
+  if user
+    p You're logged in as #{user.email}. Hi #{user.profile.name ? user.profile.name.split(/\s+/)[0] : 'there'}!
+    p
+      a(href="/levels") Play
+    p
+      a(href="/leaderboard") Leaderboard
+    if user.isAdmin
+      p
+        a(href="/admin") Admin Dashboard
+    p
+      a(href="/auth/logout") Logout
+  else
+    p
+      a(href="/auth/login") Login
